@@ -16,7 +16,11 @@ textarea {
 
 html {
   font-size: 1em;
-  line-height: 1.4; }
+  line-height: 1.4;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -78,24 +82,174 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/* Main structure */
+.wrapper {
+  overflow: hidden;
+  /*fixes floats craziness*/ }
+
+.container {
+  /*min-height: 600px;*/
+  background: #e9e9e9;
+  margin-bottom: 2px;
+  overflow: hidden;
+  /* clear floats */ }
+
+.container-inner {
+  max-width: 980px;
+  padding: 0 2%;
+  margin: 0 auto;
+  padding-top: 20px; }
+
+#section-1 {
+  margin-top: 181px; }
+
+#section-2 {
+  background: #fff; }
+
+/* Typography */
+body {
+  font-family: 'Lora', serif; }
+
+p {
+  font-size: 1.1em;
+  color: #777; }
+
+h1, h2, h3, h4 {
+  /*font-family: 'Hind', sans-serif;*/
+  font-family: 'Muli', sans-serif;
+  color: #333; }
+
+h1 {
+  font-size: 1.4em;
+  margin-top: 0; }
+
+h2 {
+  font-size: 1.2em;
+  margin-top: 0; }
+
+h1 {
+  border-bottom: 2px dotted #C2D4A0;
+  padding-bottom: .3em; }
+
+/* Header / Navigation */
+header {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  height: 181px;
+  padding-top: .5em;
+  margin: 0 auto; }
+  header .header-inner {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 2%;
+    position: relative; }
+
+.treatments-list {
+  background: #96B45B url("../images/pattern.png") repeat-x bottom;
+  margin: 1em 0 0 0;
+  padding-bottom: 20px;
+  clear: both; }
+  .treatments-list .treatments-list-inner {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: .7em 2%; }
+  .treatments-list ul {
+    padding: 0;
+    margin: 0; }
+  .treatments-list li {
+    display: inline;
+    font-family: Helvetica, Arial;
+    color: green;
+    padding-right: .3em; }
+  .treatments-list li:after {
+    content: "\2022";
+    font-size: 1.1em;
+    margin-left: .3em; }
+  .treatments-list li:last-child:after {
+    content: ""; }
+
+.logo {
+  /*    position: absolute;
+      left: 3px;
+      top:3px;*/
+  float: left;
+  background: url(../images/logo.png) no-repeat;
+  width: 173px;
+  height: 77px;
+  margin-bottom: 1.2em; }
+
+nav {
+  float: right;
+  margin-top: 1em; }
+  nav li {
+    float: left;
+    margin-right: 1em;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif; }
+  nav a {
+    color: #101010;
+    text-decoration: none; }
+  nav a.active {
+    color: #FFF;
+    background: #409DAB;
+    padding: .1em .4em .2em .4em;
+    border-radius: 5px; }
+
+/* Images */
+.img-bdr {
+  border: 1px solid #aaa;
+  padding: 5px; }
+
+/* 'Sections' */
+.profile-img {
+  float: left;
+  display: block;
+  width: 30%; }
+  .profile-img img {
+    max-width: 100%; }
+
+.profile-content {
+  float: right;
+  width: 70%;
+  padding-left: 4%; }
+
+.content-left {
+  float: left;
+  display: block;
+  margin-bottom: 1em; }
+  .content-left img {
+    max-width: 100%; }
+
+.content-right {
+  float: right;
+  padding-left: 4%; }
+  .content-right img {
+    max-width: 100%; }
+
+.primary {
+  width: 70%; }
+
+.secondary {
+  width: 30%; }
+
+blockquote {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: .9em;
+  background: #e9e9e9;
+  padding: .5em .5em; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
 /*
  * Image replacement
  */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px; }
-
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%; }
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
 
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
@@ -171,64 +325,5 @@ textarea {
    ========================================================================== */
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */ }
-@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */ }
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
-    box-shadow: none !important;
-    text-shadow: none !important; }
-
-  a,
-  a:visited {
-    text-decoration: underline; }
-
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-
-  /*
-   * Don't show links for images, or javascript/internal links
-   */
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: ""; }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group;
-    /* h5bp.com/t */ }
-
-  tr,
-  img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2,
-  h3 {
-    page-break-after: avoid; } }
 
 /*# sourceMappingURL=main.css.map */
