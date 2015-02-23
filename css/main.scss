@@ -117,8 +117,7 @@ $outerpadding: 0 2%;
 /* Main structure */
 
 
-.wrapper {
-    
+.wrapper {   
     overflow: hidden; /*fixes floats craziness*/
 }
 
@@ -126,7 +125,7 @@ $outerpadding: 0 2%;
 
 .container {
     /*min-height: 600px;*/
-    background: #e9e9e9;
+    background: #f6f6f6;
     margin-bottom: 2px;
     overflow: hidden; /* clear floats */      
 }
@@ -149,9 +148,13 @@ body {
     font-family: 'Lora', serif;
 }
 
-p {
+p, .container li {
     font-size:1.1em;
     color: #777;
+}
+
+h2 + p { 
+    margin-top: .5em;
 }
 
 h1, h2, h3, h4 {
@@ -161,13 +164,14 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size:1.4em;
+    font-size:1.6em;
     margin-top:0;
 }
 
 h2 {
     font-size:1.2em;
-    margin-top:0;
+    margin-top:2em;
+    margin-bottom: .5em;
 }
 
 h1 {
@@ -185,6 +189,7 @@ header {
     height: 181px;
     padding-top:.5em;
     margin: 0 auto;
+    z-index: 200;
     .header-inner {
         margin: 0 auto;
         max-width: $full-width;
@@ -201,11 +206,15 @@ header {
     .treatments-list-inner {
         margin: 0 auto;
         max-width: $full-width;
-        padding:.7em 2%;
+        padding:.7em 2% .5em 2%;
+        overflow: hidden;
     }
     ul { 
         padding:0;
-        margin:0;
+        margin:.6em 0 0 0;
+        float: left;
+        min-width: 60%;
+
     }
     li {
         display: inline;
@@ -223,19 +232,26 @@ header {
     }
 
 }
+
+.location {
+    float: right;
+    padding:0;
+    margin:0;
+    color:#fff;
+    font-size: .9em;
+    font-family: Helvetica, Arial;
+    line-height: 160%;
+}
     
 
 
 .logo {
-/*    position: absolute;
-    left: 3px;
-    top:3px;*/
     float: left;
     background: url(../images/logo.png) no-repeat;
     width: 173px;
     height: 77px;
     margin-bottom: 1.2em;
-    }
+}
 
 
 nav {
@@ -259,13 +275,21 @@ nav {
     }
 }
 
-/* Images */
+/* General Images */
 
+img {
+    max-width: 100%;
+}
 
 .img-bdr {
     border:1px solid $lgray;
     padding:5px;
+}
 
+.center-img {
+    width: 65%;
+    margin:0 auto;
+    margin-bottom: 1em;
 }
 
 
@@ -311,12 +335,43 @@ nav {
 blockquote {
     font-family: Georgia, serif;
     font-style: italic;
-    font-size: .9em;
+    font-size: 1.1em;
     background: #e9e9e9;
-    padding: .5em .5em;
+    padding: .7em .7em;
+    padding-left:3em;
+    color: #333;
+    position: relative;
 }
 
+blockquote p {
+    margin:0;
+    color:#666;
+}
 
+blockquote p:before {
+    content: "\201C";
+    font-size: 3.1em;
+    margin-left:.3em;
+    position: absolute;
+    left:-10px;
+    top:-5px;
+    color: #419DAB
+}
+
+cite {
+    font-size: .6em;
+}
+
+.map {
+    width:60%;
+    margin:0 auto;
+    padding-bottom:3em;
+}
+
+.map iframe {
+    width:100%;
+    min-height: 400px;
+}
 
 
 
