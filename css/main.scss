@@ -106,6 +106,7 @@ textarea {
 // Colors
 $red:  #ff0000;
 $green: #00FF00;
+$olivegreen: #e2ead3;
 $lgray: #aaa;
 
 
@@ -124,7 +125,6 @@ $outerpadding: 0 2%;
 
 
 .container {
-    /*min-height: 600px;*/
     background: #f6f6f6;
     margin-bottom: 2px;
     overflow: hidden; /* clear floats */      
@@ -138,7 +138,15 @@ $outerpadding: 0 2%;
 }
 
 
-#section-1 { margin-top:181px; }
+#section-1 { 
+    margin-top:186px; 
+    @media (max-width:800px){
+            margin-top:168px;           
+    }
+    @media (max-width:510px){
+            margin-top:200px;           
+    }
+}
 #section-2 { background: #fff; }
 
 
@@ -151,6 +159,9 @@ body {
 p, .container li {
     font-size:1.1em;
     color: #777;
+    @media (max-width:800px){
+        font-size:.9em;
+    }
 }
 
 h2 + p { 
@@ -164,32 +175,75 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size:1.6em;
-    margin-top:0;
-}
-
-h2 {
-    font-size:1.2em;
-    margin-top:2em;
-    margin-bottom: .5em;
-}
-
-h1 {
+    font-size:1.7em;
     border-bottom:2px dotted #C2D4A0;
     padding-bottom: .3em;
+    color:#409DAB;
+    margin:0;
+    @media (max-width:800px){
+        font-size:1.4em;
+    }
+    @media (max-width:550px){
+        font-size:1.1em;
+    }
+}
+
+#section-1 h1 {
+    margin:0 0 0 33%;
+}
+
+
+h2 {
+    font-size:1.3em;
+    margin-top:1.6em;
+    margin-bottom: .5em;
+    @media (max-width:800px){
+        font-size:1.2em;
+    }
+}
+
+h4 {
+    font-size:1.1em;
+}
+
+
+a {
+    color: #829c49;
+}
+
+strong {
+    font-weight: normal;
+    color:#000;
 }
 
 
 /* Header / Navigation */
 
+header:after {
+    content: "";
+    display: block;
+    height: 500px;
+    width: 500px;
+    background: $olivegreen;
+    position: absolute;
+    left: -379px;
+    top: -326px;
+    border-radius: 44em;
+    z-index: -1;
+}
+
 header {
     position: fixed;
     background: #fff;
     width: 100%;
-    height: 181px;
+    height: 186px;
     padding-top:.5em;
     margin: 0 auto;
     z-index: 200;
+    @media (max-width:800px){
+        height:168px;
+            
+    }
     .header-inner {
         margin: 0 auto;
         max-width: $full-width;
@@ -213,14 +267,16 @@ header {
         padding:0;
         margin:.6em 0 0 0;
         float: left;
-        min-width: 60%;
-
+        min-width: 65%;
+        @media (max-width:800px){
+            display:none;
+        }
     }
     li {
         display: inline;
-        font-family: Helvetica, Arial;
-        color:green;
+        font-family: Hind, Helvetica, Arial;
         padding-right: .3em;
+        color:#444;
     }
     li:after {
         content: "\2022";
@@ -237,12 +293,25 @@ header {
     float: right;
     padding:0;
     margin:0;
+    margin-right: 145px;
     color:#fff;
     font-size: .9em;
     font-family: Helvetica, Arial;
     line-height: 160%;
+    @media (max-width:800px){
+        font-size:.8em;   
+        }
+    @media (max-width:879px){
+        margin-right: 0px;  
+        }    
 }
-    
+
+.tel {
+    display: block;
+    @media (max-width:800px){
+        display:inline;
+        }
+}
 
 
 .logo {
@@ -250,6 +319,7 @@ header {
     background: url(../images/logo.png) no-repeat;
     width: 173px;
     height: 77px;
+    background-size:contain;
     margin-bottom: 1.2em;
 }
 
@@ -257,11 +327,31 @@ header {
 nav {
     float: right;
     margin-top: 1em;
+
+    @media (max-width:510px){
+            float: none;
+            clear: left;
+            width: 90%;
+            margin: 0;
+            padding-bottom: 1.5em;
+    }
+     ul  {
+        padding:0;
+            @media (max-width:510px){
+            margin-top:0;
+            }
+        } 
     li {
         float: left;
         margin-right:1em;
         text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;   
+        font-family: 'Source Sans Pro', sans-serif;
+        /*@media (max-width:800px){
+            font-size:.9em;
+        }*/
+        /*@media (max-width:500px){
+            font-size:.8em;
+        } */   
     }
     a {
         color: #101010;
@@ -273,6 +363,46 @@ nav {
         padding:.1em .4em .2em .4em;
         border-radius: 5px;
     }
+    a:hover{
+        color: #409DAB;
+    }
+    a.active:hover{
+        color: #fff;
+    }
+}
+
+
+.special-offer {
+    width:100px;
+    height: 100px;
+    background: #735D45;
+    border-radius: 10em;
+    border:2px solid #fff;
+    color: #C3B6A6;
+    position: absolute;
+    right:67px;
+    top:105px;
+    font-size: .65em;
+    font-family: Arial, Helvetica;
+    padding:1.6em 1em 0 1em;
+    text-align: center;
+    
+    transform: rotate(7deg);
+  /*  @media (max-width: 880px) {
+        display:block;
+    }*/
+    @media (max-width:879px){
+            display:none;
+        }
+}
+
+
+
+.special-offer strong {
+    background: #735D45;
+    font-size: 3em;
+    color: #C3B6A6;
+    display: inline-block;
 }
 
 /* General Images */
@@ -291,6 +421,25 @@ img {
     margin:0 auto;
     margin-bottom: 1em;
 }
+
+.feature-box {
+    background: #e2ead3;
+    padding: 1em;
+    width: 80%;
+    margin-top: 1em;
+        h4 {
+            margin:0 0 .5em 0;
+        }
+        p {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size:.9em;
+            line-height: 150%;
+        }
+        p:last-child {
+            margin:0;
+        }
+    }
+
 
 
 
@@ -315,6 +464,7 @@ img {
 .content-left {
     float: left;
     display: block;
+    margin-right:3%;
     margin-bottom: 1em;
     img {
         max-width: 100%;
@@ -332,6 +482,8 @@ img {
 .primary { width: 70%; }
 .secondary { width: 30%; }
 
+
+
 blockquote {
     font-family: Georgia, serif;
     font-style: italic;
@@ -341,6 +493,12 @@ blockquote {
     padding-left:3em;
     color: #333;
     position: relative;
+    box-shadow: 1px 1px 2px 0px  #ccc;
+    margin-left: 33%;
+    margin-right:0;
+    @media (max-width:544px){
+            margin-left:0;
+        }
 }
 
 blockquote p {
@@ -363,14 +521,21 @@ cite {
 }
 
 .map {
-    width:60%;
+    width:80%;
     margin:0 auto;
-    padding-bottom:3em;
+    margin-bottom:3em;
 }
 
 .map iframe {
     width:100%;
     min-height: 400px;
+}
+
+.fb {
+  display: block;
+  background: url(../images/facebook.png) no-repeat;
+  padding: .1em 0 .2em 2.4em;
+  height: 34px;
 }
 
 
