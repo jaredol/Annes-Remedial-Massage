@@ -85,7 +85,7 @@ textarea {
 /* Main structure */
 .wrapper {
   overflow: hidden;
-  /*fixes floats craziness*/ }
+  /* fixes floats craziness */ }
 
 .container {
   background: #f6f6f6;
@@ -121,6 +121,9 @@ p, .container li {
   @media (max-width: 800px) {
     p, .container li {
       font-size: .9em; } }
+  @media (max-width: 550px) {
+    p, .container li {
+      line-height: 1.5; } }
 
 h2 + p {
   margin-top: .5em; }
@@ -318,7 +321,8 @@ nav {
 .special-offer strong {
   background: #735D45;
   font-size: 3em;
-  color: #C3B6A6; }
+  color: #C3B6A6;
+  display: inline-block; }
 
 /* General Images */
 img {
@@ -408,6 +412,9 @@ blockquote p:before {
   left: -10px;
   top: -5px;
   color: #419DAB; }
+
+blockquote + h2 {
+  clear: both; }
 
 cite {
   font-size: .6em; }
