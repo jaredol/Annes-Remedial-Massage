@@ -248,6 +248,8 @@ header {
   @media (max-width: 800px) {
     .tel {
       display: inline; } }
+  .tel a {
+    color: #fff; }
 
 .logo {
   float: left;
