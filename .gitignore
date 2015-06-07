@@ -4,7 +4,6 @@
 # Ignore sass-cache files.
 *.sass-cache*
 
-css/main.css
 css/*.map
 
 # OS generated files #
